@@ -82,9 +82,9 @@ if __name__ == '__main__':
     print 'Training data saved to', test_config.TRAINING_FILE
 
     # Save mean and eignface images which summarize the face recognition model.
-    mean = model.getMean("mean").reshape(faces[0].shape)
+    mean = model.getMean().reshape(faces[0].shape)
     cv2.imwrite(MEAN_FILE, normalize(mean, 0, 255, dtype=np.uint8))
-    eigenvectors = model.getEigenVectors("eigenvectors")
+    eigenvectors = model.getEigenVectors()
     pos_eigenvector = eigenvectors[:,0].reshape(faces[0].shape)
     cv2.imwrite(POSITIVE_EIGENFACE_FILE, normalize(pos_eigenvector, 0, 255, dtype=np.uint8))
     neg_eigenvector = eigenvectors[:,1].reshape(faces[0].shape)
